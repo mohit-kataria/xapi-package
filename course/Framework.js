@@ -35,50 +35,50 @@ Framework.prototype.includeFiles = function (mode) {
   }
 };
 
-Framework.prototype.parseXML = function (xml) {
-  debugger;
-  this.courseArray = new Array();
-  var course = sljQ(xml).find("course");
-  document.title = sljQ(course).attr("title");
-  sljQ("#title").html(sljQ(course).attr("title"));
-  Framework.courseName = sljQ(course).attr("title");
-  Framework.courseId = sljQ(course).attr("id");
+// Framework.prototype.parseXML = function (xml) {
+//   debugger;
+//   this.courseArray = new Array();
+//   var course = sljQ(xml).find("course");
+//   document.title = sljQ(course).attr("title");
+//   sljQ("#title").html(sljQ(course).attr("title"));
+//   Framework.courseName = sljQ(course).attr("title");
+//   Framework.courseId = sljQ(course).attr("id");
 
-  var str = "<ul>";
+//   var str = "<ul>";
 
-  sljQ(sljQ(xml).find("page")).each(function (i) {
-    Framework.PageVisitedStatus[i] = 0;
-    var obj = new Object();
-    obj.id = i;
-    obj.displayText = sljQ(this).attr("displayText");
-    obj.link = sljQ(this).attr("link");
-    obj.keywords = sljQ(this).attr("keywords");
-    courseArray.push(obj);
+//   sljQ(sljQ(xml).find("page")).each(function (i) {
+//     Framework.PageVisitedStatus[i] = 0;
+//     var obj = new Object();
+//     obj.id = i;
+//     obj.displayText = sljQ(this).attr("displayText");
+//     obj.link = sljQ(this).attr("link");
+//     obj.keywords = sljQ(this).attr("keywords");
+//     courseArray.push(obj);
 
-    str +=
-      "<li id='" +
-      i +
-      "' class='link' tooltip='" +
-      sljQ(this).attr("tooltip") +
-      "' url='" +
-      sljQ(this).attr("link") +
-      "'>" +
-      sljQ(this).attr("displayText") +
-      "</li>";
-  });
-  str += "</ul>";
+//     str +=
+//       "<li id='" +
+//       i +
+//       "' class='link' tooltip='" +
+//       sljQ(this).attr("tooltip") +
+//       "' url='" +
+//       sljQ(this).attr("link") +
+//       "'>" +
+//       sljQ(this).attr("displayText") +
+//       "</li>";
+//   });
+//   str += "</ul>";
 
-  View.updateElements("coursemap", str);
+//   View.updateElements("coursemap", str);
 
-  sljQ(".link").click(function () {
-    if (sljQ("#coursemapContainer").is(":visible")) {
-      sljQ("#coursemapContainer").slideToggle();
-    }
-    //Navigation.loadPages(sljQ(this));
-  });
-  sljQ("#packagecontainer").show();
-  //Navigation.navigation();
-};
+//   sljQ(".link").click(function () {
+//     if (sljQ("#coursemapContainer").is(":visible")) {
+//       sljQ("#coursemapContainer").slideToggle();
+//     }
+//     //Navigation.loadPages(sljQ(this));
+//   });
+//   sljQ("#packagecontainer").show();
+//   //Navigation.navigation();
+// };
 
 function doLMSGetValues() {
   if (window.location.href != null || window.location.href != undefined) {
